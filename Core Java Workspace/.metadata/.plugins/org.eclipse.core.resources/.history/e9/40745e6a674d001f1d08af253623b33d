@@ -1,0 +1,11 @@
+package com;
+
+public class CarTest {
+
+	public static void main(String[] args) {
+		Car innova = new Car();			// heap memory created...
+		innova.start();
+		innova.stop();
+	}
+
+}
