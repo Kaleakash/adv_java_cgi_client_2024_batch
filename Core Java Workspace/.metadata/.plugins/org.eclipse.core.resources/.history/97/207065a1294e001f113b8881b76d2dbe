@@ -1,0 +1,25 @@
+package polymorphism;
+
+class Operation {
+	public void add() {
+		
+	}
+	public void hello() {
+		
+	}
+	public void read() {
+		
+	}
+	public void display() {
+	
+	}
+}
+
+public class MethodOverloading {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

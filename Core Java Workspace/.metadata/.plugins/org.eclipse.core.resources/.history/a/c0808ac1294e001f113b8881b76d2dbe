@@ -1,0 +1,28 @@
+package polymorphism;
+
+class Operation {
+	public void add() {
+		System.out.println(10+20);
+	}
+	public void add(int x) {
+		System.out.println(x+20);
+	}
+//	public void hello() {
+//		
+//	}
+//	public void read() {
+//		
+//	}
+//	public void display() {
+//	
+//	}
+}
+
+public class MethodOverloading {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
