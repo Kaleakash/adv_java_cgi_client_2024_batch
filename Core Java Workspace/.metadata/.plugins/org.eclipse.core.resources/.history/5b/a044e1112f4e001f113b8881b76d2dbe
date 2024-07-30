@@ -1,0 +1,30 @@
+package abstractdemo;
+
+
+class Bike {
+	void speed() {
+		System.out.println("60km/hr");
+	}
+}
+class Honda extends Bike {					// inherits 
+	void colour() {
+		System.out.println("Red Colour");
+	}
+}
+class Pulsar extends Bike {
+	void colour() {
+		System.out.println("Black Colour");
+	}
+	@Override
+	void speed() {					// override it 
+		System.out.println("90km/hr");
+	}
+}
+public class AbstractExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
