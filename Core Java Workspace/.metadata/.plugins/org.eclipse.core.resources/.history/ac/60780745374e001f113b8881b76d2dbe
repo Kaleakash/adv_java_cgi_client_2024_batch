@@ -19,5 +19,7 @@ public class StaticExample1 {
 		i2.b=60;
 		i1.dis();		//a=10, b = 60
 		i2.dis();		// a=40, b =60 
+
 	}
+
 }
