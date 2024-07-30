@@ -1,0 +1,22 @@
+package finalkeyword;
+
+import polymorphism.Bike;
+
+class Bike {
+	void speed() {
+		System.out.println("60km/hr");
+	}
+}
+class Honda extends Bike {					// inherits 
+	void colour() {
+		System.out.println("Red Colour");
+	}
+}
+public class FinalExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

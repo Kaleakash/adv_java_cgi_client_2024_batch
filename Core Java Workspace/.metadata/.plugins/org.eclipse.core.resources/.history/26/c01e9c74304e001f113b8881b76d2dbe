@@ -24,6 +24,7 @@ class Pulsar extends Bike {
 	}
 }
 public class AbstractExample {
+
 	public static void main(String[] args) {
 	Honda hh = new Honda(); hh.speed(); hh.colour();
 	Pulsar pu = new Pulsar(); pu.speed(); pu.colour();
