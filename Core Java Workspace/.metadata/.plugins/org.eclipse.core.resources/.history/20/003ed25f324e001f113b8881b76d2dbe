@@ -1,0 +1,19 @@
+package statickeyword;
+class Abc {
+	int a;				// non static or instance 
+	static int b;		// static 
+	void dis1() {
+		System.out.println("non static method");
+	}
+	static void dis2() {
+		System.out.println("static method");
+	}
+}
+public class StaticExample {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

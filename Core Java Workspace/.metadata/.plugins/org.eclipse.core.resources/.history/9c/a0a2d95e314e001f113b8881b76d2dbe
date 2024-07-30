@@ -5,9 +5,6 @@ final class Bike {
 	}
 }
 class Honda  {		
-	public Honda() {
-		// TODO Auto-generated constructor stub
-	}
 	void speed() {
 		System.out.println("90km/hr");
 	}

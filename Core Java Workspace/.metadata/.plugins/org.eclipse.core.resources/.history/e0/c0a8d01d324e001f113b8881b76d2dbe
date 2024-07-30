@@ -5,7 +5,7 @@ final class Bike {
 	}
 }
 class Honda  {		
-	public Honda() {
+	public final Honda() {
 		// TODO Auto-generated constructor stub
 	}
 	void speed() {
