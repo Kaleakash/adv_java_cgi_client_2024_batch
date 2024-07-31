@@ -2,6 +2,8 @@ package com;
 class VoteException extends Exception {
 	public VoteException() {
 		super();
+		System.out.println("Hi");
+		
 	}
 	public VoteException(String msg) {
 		super(msg);  // calling parameterized constructor of Exception to set the message 
