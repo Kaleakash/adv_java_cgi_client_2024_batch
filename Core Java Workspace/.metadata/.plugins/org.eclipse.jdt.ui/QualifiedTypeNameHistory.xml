@@ -4,4 +4,8 @@
     <fullyQualifiedTypeName name="inheritance.Employee"/>
     <fullyQualifiedTypeName name="inheritance.Manager"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="polymorphism.Operation"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="education.college.Attendance"/>
+    <fullyQualifiedTypeName name="com.bean.Employee"/>
 </qualifiedTypeNameHistroy>
