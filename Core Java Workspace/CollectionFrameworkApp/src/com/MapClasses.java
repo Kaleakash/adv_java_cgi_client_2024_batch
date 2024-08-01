@@ -2,15 +2,17 @@ package com;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class MapClasses {
 
 	public static void main(String[] args) {
 	// HashMap 
-	Map mm = new HashMap();
+	//Map mm = new HashMap();
+		Map mm = new TreeMap();
 	mm.put(2, "Ravi");
 	mm.put(1, "Ramesh");
-	mm.put("a", "b");
+	//mm.put("a", "b");
 	mm.put(3, "Ajay");
 	mm.put(4, "Balaji");
 	mm.put(4, "Yogesh");
