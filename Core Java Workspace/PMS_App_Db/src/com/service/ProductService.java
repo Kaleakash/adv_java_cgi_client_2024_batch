@@ -8,8 +8,6 @@ import com.bean.Product;
 import com.dao.ProductDao;
 
 public class ProductService {
-
-	private List<Product> listOfProducts = new ArrayList<Product>();
 	private ProductDao pd = new ProductDao();
 	public String addProduct(Product product) {
 		if(product.getPrice()<1000) {
@@ -20,11 +18,9 @@ public class ProductService {
 			return "Product didn't store";
 		}
 	}
-
 	public List<Product> findAllProducts(){
-		return listOfProducts;
+		return pd.retrieveAllProducts();
 	}
-	
 	public String deleteProduct(int pid) {
 		if(pd.deleteProduct(pid)>0) {
 			return "Product removed successfully";
