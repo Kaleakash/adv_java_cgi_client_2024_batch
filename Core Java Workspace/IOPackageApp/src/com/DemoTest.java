@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DemoTest {
 
@@ -45,19 +47,41 @@ public class DemoTest {
 //		System.out.println("name is "+name1);
 //		System.out.println("salary is "+salary1);
 		
-		Employee emp = new Employee(100, "Ravi", 12000);
-		System.out.println(emp);
-		FileOutputStream fos = new FileOutputStream("employee.ser");
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(emp);
-		oos.close();
-		System.out.println("object serialization done!");
+//		Employee emp = new Employee(100, "Ravi", 12000);
+//		System.out.println(emp);
+//		FileOutputStream fos = new FileOutputStream("employee.ser");
+//		ObjectOutputStream oos = new ObjectOutputStream(fos);
+//		oos.writeObject(emp);
+//		oos.close();
+//		System.out.println("object serialization done!");
 		
 //		FileInputStream fis = new FileInputStream("employee.ser");
 //		ObjectInputStream ois = new ObjectInputStream(fis);
 //		Object obj = ois.readObject();
 //		Employee emp1 = (Employee)obj;
 //		System.out.println(emp1);
+		
+		// storing list of object 
+		
+		Employee emp1 = new Employee(100, "Ravi", 12000);
+		Employee emp2 = new Employee(100, "Ravi", 12000);
+		Employee emp3 = new Employee(100, "Ravi", 12000);
+		List<Employee> listOfEmp = new ArrayList<Employee>();
+		listOfEmp.add(emp1);
+		listOfEmp.add(emp2);
+		listOfEmp.add(emp3);
+		
+		FileOutputStream fos = new FileOutputStream("employees.ser");
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(listOfEmp);
+		oos.close();
+		System.out.println("object serialization done!");
+		
+		FileInputStream fis = new FileInputStream("employees.ser");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		Object obj = ois.readObject();
+		List<Employee> listofemployees = (List<Employee>)obj;
+		System.out.println(listOfEmp.size());
 	}
 
 }
