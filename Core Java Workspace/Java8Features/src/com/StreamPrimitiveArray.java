@@ -1,5 +1,6 @@
 package com;
 
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class StreamPrimitiveArray {
@@ -12,7 +13,11 @@ public class StreamPrimitiveArray {
 		Integer num[]= {10,11,20,21,30,35,40,57,50,60,65};
 		//Stream.of(num).forEach(c->System.out.println(c));
 		//Stream.of(num).map(v->v+1).forEach(c->System.out.println(c));
-		Stream.of(num).filter(p->p%2==0).forEach(c->System.out.println(c));
+		//Stream.of(num).filter(p->p%2==0).forEach(c->System.out.println(c));
+		
+		//Supplier<Integer> ss = ()->100;
+		Supplier<Double> ss = ()->Math.random();
+		System.out.println(ss.get());
 	}
 
 }
