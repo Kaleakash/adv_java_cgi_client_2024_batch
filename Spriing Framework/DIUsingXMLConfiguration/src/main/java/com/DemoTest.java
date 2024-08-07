@@ -24,17 +24,23 @@ public class DemoTest {
 //		
 //		Employee emp4 = (Employee)obj.getBean("emp2");
 //		emp4.display();
+//		
+//		Employee emp1 = (Employee)obj.getBean("emp1");
+//		System.out.println(emp1);
+//		Employee emp2 = (Employee)obj.getBean("emp2");
+//		System.out.println(emp2);
+//		
+//		Employee emp3 = (Employee)obj.getBean("emp3");
+//		System.out.println(emp3);
+//		
+//		Employee emp4 = (Employee)obj.getBean("emp4");
+//		System.out.println(emp4);
 		
-		Employee emp1 = (Employee)obj.getBean("emp1");
+		Address add1 = (Address)obj.getBean("address");
+		System.out.println(add1);
+		
+		Employee emp1 = (Employee)obj.getBean("employee");
 		System.out.println(emp1);
-		Employee emp2 = (Employee)obj.getBean("emp2");
-		System.out.println(emp2);
-		
-		Employee emp3 = (Employee)obj.getBean("emp3");
-		System.out.println(emp3);
-		
-		Employee emp4 = (Employee)obj.getBean("emp4");
-		System.out.println(emp4);
 	}
 
 }
