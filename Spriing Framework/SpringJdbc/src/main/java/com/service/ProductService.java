@@ -26,21 +26,21 @@ public class ProductService {
 			return "Product didn't store";
 		}
 	}
-	public List<Product> findAllProducts(){
-		return productDao.retrieveAllProducts();
-	}
-	public String deleteProduct(int pid) {
-		if(productDao.deleteProduct(pid)>0) {
-			return "Product removed successfully";
-		}else {
-			return "Product not present";
-		}
-	}
-	public String updatetProduct(Product product) {
-		if(productDao.updateProduct(product)>0) {
-			return "Product price updated successfully";
-		}else {
-			return "product not present";
-		}
-	}
+//	public List<Product> findAllProducts(){
+//		return productDao.retrieveAllProducts();
+//	}
+//	public String deleteProduct(int pid) {
+//		if(productDao.deleteProduct(pid)>0) {
+//			return "Product removed successfully";
+//		}else {
+//			return "Product not present";
+//		}
+//	}
+//	public String updatetProduct(Product product) {
+//		if(productDao.updateProduct(product)>0) {
+//			return "Product price updated successfully";
+//		}else {
+//			return "product not present";
+//		}
+//	}
 }

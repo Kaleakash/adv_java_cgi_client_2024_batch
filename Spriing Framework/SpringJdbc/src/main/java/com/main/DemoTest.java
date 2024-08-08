@@ -39,29 +39,29 @@ public class DemoTest {
 				result = ps.addProduct(p);
 				System.out.println(result);
 				break;
-			case 2 : List<Product> listOfProduct = ps.findAllProducts();
-			         for(Product product :listOfProduct) {
-			        	 System.out.println(product);   // toString method 
-			         }
-			         break;
-			case 3 :System.out.println("Enter the product id");
-			          pid = sc.nextInt();
-			          result = ps.deleteProduct(pid);
-			          System.out.println(result);
-			          break;
-			
-			          
-			case 4:System.out.println("Enter the product id");
-		    		pid = sc.nextInt();
-		    		System.out.println("Enter ther product price");
-		    		price = sc.nextFloat();
-		    		Product p1 = (Product)ac.getBean("product");
-		    		p1.setPid(pid);
-		    		p1.setPrice(price);
-		    		result = ps.updatetProduct(p1);
-		    		System.out.println(result);
-		    		
-		    		break;
+//			case 2 : List<Product> listOfProduct = ps.findAllProducts();
+//			         for(Product product :listOfProduct) {
+//			        	 System.out.println(product);   // toString method 
+//			         }
+//			         break;
+//			case 3 :System.out.println("Enter the product id");
+//			          pid = sc.nextInt();
+//			          result = ps.deleteProduct(pid);
+//			          System.out.println(result);
+//			          break;
+//			
+//			          
+//			case 4:System.out.println("Enter the product id");
+//		    		pid = sc.nextInt();
+//		    		System.out.println("Enter ther product price");
+//		    		price = sc.nextFloat();
+//		    		Product p1 = (Product)ac.getBean("product");
+//		    		p1.setPid(pid);
+//		    		p1.setPrice(price);
+//		    		result = ps.updatetProduct(p1);
+//		    		System.out.println(result);
+//		    		
+//		    		break;
 			
 			default:System.out.println("wrong choice");
 				break;

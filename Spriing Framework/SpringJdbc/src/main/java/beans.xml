@@ -19,6 +19,9 @@
 </bean>
 
 
+<bean class="org.springframework.jdbc.core.JdbcTemplate" id="jdbcTemplate" scope="singleton" >
+	<property name="dataSource" ref="ds"></property>
+</bean>
 
 
 </beans>
