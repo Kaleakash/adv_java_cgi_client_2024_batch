@@ -27,9 +27,16 @@ public class ProductService {
 			return "Product didn't store";
 		}
 	}
-//	public List<Product> findAllProducts(){
-//		return productDao.retrieveAllProducts();
-//	}
+	public List<Product> findAllProducts(){
+		List<Product> listOfProduct = productDao.retrieveAllProductAsList();
+		Iterator<Product> li = listOfProduct.iterator();
+		while(li.hasNext()) {
+			Product p = li.next();
+			float discount = p.getPrice()*0.10f;
+			p.setPrice(p.getPrice()-discount);
+		}
+		return listOfProduct;
+	}
 	public String deleteProduct(int pid) {
 		if(productDao.deleteProduct(pid)>0) {
 			return "Product removed successfully";
@@ -48,4 +55,6 @@ public class ProductService {
 	public List<Map<String,Object>> retrieveAllProductsAsListOfMap() {
 		return productDao.retrieveAllProductsAsListOfMap();
 	}
+	
+	
 }

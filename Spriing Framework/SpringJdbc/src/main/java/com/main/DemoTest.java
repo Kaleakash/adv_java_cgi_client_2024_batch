@@ -40,11 +40,11 @@ public class DemoTest {
 				result = ps.addProduct(p);
 				System.out.println(result);
 				break;
-//			case 2 : List<Product> listOfProduct = ps.findAllProducts();
-//			         for(Product product :listOfProduct) {
-//			        	 System.out.println(product);   // toString method 
-//			         }
-//			         break;
+			case 2 : List<Product> listOfProduct = ps.findAllProducts();
+			         for(Product product :listOfProduct) {
+			        	 System.out.println(product);   // toString method 
+			         }
+			         break;
 			case 3 :System.out.println("Enter the product id");
 			          pid = sc.nextInt();
 			          result = ps.deleteProduct(pid);

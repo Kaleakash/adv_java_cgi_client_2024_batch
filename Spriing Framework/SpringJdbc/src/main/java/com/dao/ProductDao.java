@@ -12,7 +12,10 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import com.bean.Product;
 @Repository						// dao layer specific annotation 
@@ -118,5 +121,34 @@ public class ProductDao {
 			System.err.println(e);
 		}
 		return null;
+	}
+	
+	public List<Product> retrieveAllProductAsList() {
+		try {
+		//return jdbcTemplate.query("select * from product",new MyResultSetExtracter());
+			return jdbcTemplate.query("select * from product", new MyRowMapper());
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+}
+
+class MyResultSetExtracter implements ResultSetExtractor<Product>{
+	@Override
+	public Product extractData(ResultSet rs) throws SQLException, DataAccessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
+// global while loop 
+class MyRowMapper implements RowMapper<Product>{
+	@Override
+	public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Product p = new Product();
+		p.setPid(rs.getInt(1));
+		p.setPname(rs.getString(2));
+		p.setPrice(rs.getFloat(3));
+		return p;
 	}
 }
