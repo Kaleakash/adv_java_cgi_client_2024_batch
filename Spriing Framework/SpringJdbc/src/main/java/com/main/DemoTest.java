@@ -1,6 +1,7 @@
 package com.main;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
@@ -21,7 +22,7 @@ public class DemoTest {
 		//ProductService ps  = new ProductService();
 		ProductService ps  = (ProductService)ac.getBean("productService");   // pull the object from container as id name is camel naming rules. 
 		do {
-			System.out.println("1:Add Product 2 :View all products 3 : Delete product 4 : Update product price");
+			System.out.println("1:Add Product 2 :View all products 3 : Delete product 4 : Update product price 5: Retrieve Product as List Of Map");
 			System.out.println("Plz enter your choice");
 			choice = sc.nextInt();
 			switch (choice) {
@@ -44,25 +45,30 @@ public class DemoTest {
 //			        	 System.out.println(product);   // toString method 
 //			         }
 //			         break;
-//			case 3 :System.out.println("Enter the product id");
-//			          pid = sc.nextInt();
-//			          result = ps.deleteProduct(pid);
-//			          System.out.println(result);
-//			          break;
-//			
-//			          
-//			case 4:System.out.println("Enter the product id");
-//		    		pid = sc.nextInt();
-//		    		System.out.println("Enter ther product price");
-//		    		price = sc.nextFloat();
-//		    		Product p1 = (Product)ac.getBean("product");
-//		    		p1.setPid(pid);
-//		    		p1.setPrice(price);
-//		    		result = ps.updatetProduct(p1);
-//		    		System.out.println(result);
-//		    		
-//		    		break;
+			case 3 :System.out.println("Enter the product id");
+			          pid = sc.nextInt();
+			          result = ps.deleteProduct(pid);
+			          System.out.println(result);
+			          break;
 			
+			          
+			case 4:System.out.println("Enter the product id");
+		    		pid = sc.nextInt();
+		    		System.out.println("Enter ther product price");
+		    		price = sc.nextFloat();
+		    		Product p1 = (Product)ac.getBean("product");
+		    		p1.setPid(pid);
+		    		p1.setPrice(price);
+		    		result = ps.updatetProduct(p1);
+		    		System.out.println(result);
+		    		
+		    		break;
+			case 5 :System.out.println("Product record as list of map");
+			        List<Map<String, Object>> listOfInfo = ps.retrieveAllProductsAsListOfMap();
+			        for(Map<String, Object> mm : listOfInfo) {
+			        	System.out.println(mm);
+			        }
+			        break;
 			default:System.out.println("wrong choice");
 				break;
 			}

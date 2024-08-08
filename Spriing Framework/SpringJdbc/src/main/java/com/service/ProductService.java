@@ -3,6 +3,7 @@ package com.service;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,18 +30,22 @@ public class ProductService {
 //	public List<Product> findAllProducts(){
 //		return productDao.retrieveAllProducts();
 //	}
-//	public String deleteProduct(int pid) {
-//		if(productDao.deleteProduct(pid)>0) {
-//			return "Product removed successfully";
-//		}else {
-//			return "Product not present";
-//		}
-//	}
-//	public String updatetProduct(Product product) {
-//		if(productDao.updateProduct(product)>0) {
-//			return "Product price updated successfully";
-//		}else {
-//			return "product not present";
-//		}
-//	}
+	public String deleteProduct(int pid) {
+		if(productDao.deleteProduct(pid)>0) {
+			return "Product removed successfully";
+		}else {
+			return "Product not present";
+		}
+	}
+	public String updatetProduct(Product product) {
+		if(productDao.updateProduct(product)>0) {
+			return "Product price updated successfully";
+		}else {
+			return "product not present";
+		}
+	}
+	
+	public List<Map<String,Object>> retrieveAllProductsAsListOfMap() {
+		return productDao.retrieveAllProductsAsListOfMap();
+	}
 }

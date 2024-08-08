@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -89,6 +91,32 @@ public class ProductDao {
 		System.err.println(e);
 		return 0;
 	}
-}
+	}
 	
+	public int deleteProduct(int pid) {
+		try {
+			return jdbcTemplate.update("delete from product where pid=?", pid);			
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
+	public int updateProduct(Product product) {
+		try {
+			return jdbcTemplate.update("update product set price=? where pid=?", product.getPrice(),product.getPid());
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
+	public List<Map<String, Object>> retrieveAllProductsAsListOfMap() {
+		try {
+			return jdbcTemplate.queryForList("select * from product");
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return null;
+	}
 }
