@@ -24,7 +24,7 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd">
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <release>22</release>
+          <release>11</release>
         </configuration>
       </plugin>
       <plugin>
