@@ -7,7 +7,7 @@ public class RuntimeErrorExample {
 		int a=10;
 		int b=1;
 		int abc[]= {10,20,30,40};
-		String str = "10abc";
+		String str = "10";
 	try {
 	int res =a/b;
 	System.out.println("Result is "+res);

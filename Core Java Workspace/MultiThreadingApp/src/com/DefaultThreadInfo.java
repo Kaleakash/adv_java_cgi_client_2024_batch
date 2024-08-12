@@ -6,7 +6,7 @@ public class DefaultThreadInfo {
 	Thread t = Thread.currentThread();
 	System.out.println(t);
 	t.setName("Demo Thread");
-	t.setPriority(10);
+	t.setPriority(1);
 	System.out.println(t);
 	}
 
