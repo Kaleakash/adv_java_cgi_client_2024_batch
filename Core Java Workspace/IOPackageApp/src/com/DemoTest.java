@@ -55,33 +55,33 @@ public class DemoTest {
 //		oos.close();
 //		System.out.println("object serialization done!");
 		
-//		FileInputStream fis = new FileInputStream("employee.ser");
-//		ObjectInputStream ois = new ObjectInputStream(fis);
-//		Object obj = ois.readObject();
-//		Employee emp1 = (Employee)obj;
-//		System.out.println(emp1);
+		FileInputStream fis = new FileInputStream("employee.ser");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		Object obj = ois.readObject();
+		Employee emp1 = (Employee)obj;		// down level type casting 
+		System.out.println(emp1);				// toString method called..
 		
 		// storing list of object 
 		
-		Employee emp1 = new Employee(100, "Ravi", 12000);
-		Employee emp2 = new Employee(100, "Ravi", 12000);
-		Employee emp3 = new Employee(100, "Ravi", 12000);
-		List<Employee> listOfEmp = new ArrayList<Employee>();
-		listOfEmp.add(emp1);
-		listOfEmp.add(emp2);
-		listOfEmp.add(emp3);
-		
-		FileOutputStream fos = new FileOutputStream("employees.ser");
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(listOfEmp);
-		oos.close();
-		System.out.println("object serialization done!");
-		
-		FileInputStream fis = new FileInputStream("employees.ser");
-		ObjectInputStream ois = new ObjectInputStream(fis);
-		Object obj = ois.readObject();
-		List<Employee> listofemployees = (List<Employee>)obj;
-		System.out.println(listOfEmp.size());
+//		Employee emp1 = new Employee(100, "Ravi", 12000);
+//		Employee emp2 = new Employee(100, "Ravi", 12000);
+//		Employee emp3 = new Employee(100, "Ravi", 12000);
+//		List<Employee> listOfEmp = new ArrayList<Employee>();
+//		listOfEmp.add(emp1);
+//		listOfEmp.add(emp2);
+//		listOfEmp.add(emp3);
+//		
+//		FileOutputStream fos = new FileOutputStream("employees.ser");
+//		ObjectOutputStream oos = new ObjectOutputStream(fos);
+//		oos.writeObject(listOfEmp);
+//		oos.close();
+//		System.out.println("object serialization done!");
+//		
+//		FileInputStream fis = new FileInputStream("employees.ser");
+//		ObjectInputStream ois = new ObjectInputStream(fis);
+//		Object obj = ois.readObject();
+//		List<Employee> listofemployees = (List<Employee>)obj;
+//		System.out.println(listOfEmp.size());
 	}
 
 }
