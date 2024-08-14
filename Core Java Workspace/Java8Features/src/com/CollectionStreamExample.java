@@ -14,14 +14,14 @@ public class CollectionStreamExample {
 	//names.forEach(name->System.out.println(name));
 	//names.stream().forEach(name->System.out.print(name+" "));
 	//names.stream().filter(name->name.contains("ee")).forEach(name->System.out.print(name+" "));
-	//names.stream().map(name->"Hi "+name.toUpperCase()).forEach(name->System.out.print(name+" "));
-	//long numberOfStd = names.stream().count();
+	//names.stream().map(name->"Hi "+name.toLowerCase()+", ").forEach(name->System.out.print(name+" "));
+	//long numberOfStd = names.stream().filter(name->name.contains("ee")).count();
 	//System.out.println("number of records are "+numberOfStd);
-//	boolean resul1 = names.stream().anyMatch(name->name.startsWith("A"));
+//	boolean resul1 = names.stream().anyMatch(name->name.startsWith("R"));
 //	System.out.println(resul1);
 	
-	//boolean resul1 = names.stream().allMatch(name->name.contains("a"));
-	//System.out.println(resul1);
+//	boolean resul1 = names.stream().allMatch(name->name.contains("a"));
+//	System.out.println(resul1);
 	
 	// after apply one or more than one intermediate operator we want to store this result and pass to another 
 	// team. 

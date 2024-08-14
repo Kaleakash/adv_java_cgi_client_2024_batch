@@ -10,6 +10,7 @@ import com.dao.ProductDao;
 public class ProductService {
 	private ProductDao pd = new ProductDao();
 	public String addProduct(Product product) {
+		
 		if(product.getPrice()<1000) {
 			return "Product price must be > 1000";
 		}else if(pd.storeProduct(product)>0) {
@@ -17,6 +18,7 @@ public class ProductService {
 		}else {
 			return "Product didn't store";
 		}
+		
 	}
 	public List<Product> findAllProducts(){
 		return pd.retrieveAllProducts();

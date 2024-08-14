@@ -3,6 +3,7 @@ package com;
 interface Operation {
 	int add(int x, int y);
 }
+
 class OperationImp implements Operation {
 	@Override
 	public int add(int x, int y) {
@@ -15,6 +16,7 @@ public class LambdaExpression {
 	//1st way 
 	Operation op1 = new OperationImp();
 	System.out.println("Add "+op1.add(100, 200));
+	
 	// 2nd way 
 	Operation op2 = new Operation() {
 		@Override
@@ -22,6 +24,9 @@ public class LambdaExpression {
 			return x+y;
 		}
 	};
+	
+	//3rd way using lambda expression style 
+	
 	System.out.println("Add "+op2.add(30, 40));
 	//Operation op3 = (x,y)->x+y;
 	//Operation op3 = (a,b)->a+b;
