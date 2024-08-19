@@ -15,7 +15,7 @@ public class DemoTest {
 //		ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
 //		Employee emp = (Employee)ac.getBean("employee");
 //		System.out.println(emp);
-//		emp.setId(100);
+//		emp.setId(101);
 //		emp.setName("Ravi");
 //		emp.setSalary(34000);
 //		System.out.println(emp);

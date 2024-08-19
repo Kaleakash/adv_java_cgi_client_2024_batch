@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component("emp")					// <bean class="com.Employee"></bean>
+@Component					// <bean class="com.Employee"></bean>
 public class Employee {			// id name is employee 
 @Value(value = "100")
 private int id;

@@ -28,7 +28,8 @@ public class ProductService {
 		}
 	}
 	public List<Product> findAllProducts(){
-		List<Product> listOfProduct = productDao.retrieveAllProductAsList();
+		//List<Product> listOfProduct = productDao.retrieveAllProductAsList();
+		List<Product> listOfProduct = productDao.retrieveAllProducts();
 		Iterator<Product> li = listOfProduct.iterator();
 		while(li.hasNext()) {
 			Product p = li.next();
@@ -52,9 +53,9 @@ public class ProductService {
 		}
 	}
 	
-	public List<Map<String,Object>> retrieveAllProductsAsListOfMap() {
-		return productDao.retrieveAllProductsAsListOfMap();
-	}
+//	public List<Map<String,Object>> retrieveAllProductsAsListOfMap() {
+//		return productDao.retrieveAllProductsAsListOfMap();
+//	}
 	
 	
 }

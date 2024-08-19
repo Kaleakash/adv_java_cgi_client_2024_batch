@@ -4,7 +4,7 @@ public class Employee {
 private int id;
 private String name;
 private float salary;
-private Address add;
+private Address add,add1;
 	public Employee() {
 		System.out.println("object created...");
 	}
@@ -15,6 +15,14 @@ private Address add;
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
+	}
+
+	public Address getAdd1() {
+		return add1;
+	}
+
+	public void setAdd1(Address add1) {
+		this.add1 = add1;
 	}
 
 	public Employee(int id, String name, float salary, Address add) {
@@ -39,7 +47,7 @@ private Address add;
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", add=" + add + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + ", add=" + add + ", add1=" + add1 + "]";
 	}
 
 	public int getId() {

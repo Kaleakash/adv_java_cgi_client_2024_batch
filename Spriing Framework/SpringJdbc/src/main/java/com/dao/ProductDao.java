@@ -21,134 +21,151 @@ import com.bean.Product;
 @Repository						// dao layer specific annotation 
 public class ProductDao {
 
-//	@Autowired
-//	DataSource ds;
-//	
-//	public int storeProduct(Product product) {
-//		try {
-//		Connection con = ds.getConnection();
-//	PreparedStatement pstmt = con.prepareStatement("insert into product values(?,?,?)");
-//	pstmt.setInt(1, product.getPid());
-//	pstmt.setString(2, product.getPname());
-//	pstmt.setFloat(3, product.getPrice());
-//	return pstmt.executeUpdate();
-//		} catch (Exception e) {
-//			System.err.println(e);
-//			return 0;
-//		}
-//	}
-//	public int updateProduct(Product product) {
-//		try {
-//			Connection con = ds.getConnection();
-//	PreparedStatement pstmt = con.prepareStatement("update product set price = ? where pid=?");
-//	pstmt.setFloat(1, product.getPrice());
-//	pstmt.setInt(2, product.getPid());
-//	return pstmt.executeUpdate();
-//		} catch (Exception e) {
-//			System.err.println(e);
-//			return 0;
-//		}
-//	}
-//	public int deleteProduct(int pid) {
-//		try {
-//			Connection con = ds.getConnection();
-//	PreparedStatement pstmt = con.prepareStatement("delete from product where pid = ?");
-//	pstmt.setInt(1, pid);
-//	return pstmt.executeUpdate();
-//		} catch (Exception e) {
-//			System.err.println(e);
-//			return 0;
-//		}
-//	}
-//	
-//	public List<Product> retrieveAllProducts() {
-//		List<Product> listOfProducts = new ArrayList<Product>();
-//		try {
-//			Connection con = ds.getConnection();
-//		Statement stmt = con.createStatement();
-//		ResultSet rs = stmt.executeQuery("select * from product");
-//		while(rs.next()) {
-//			//System.out.println("display data from dao layer");
-//			//System.out.println("pid is "+rs.getInt(1)+" pname "+rs.getString(2)+" price "+rs.getFloat(3));
-//			Product p = new Product();
-//			p.setPid(rs.getInt(1));
-//			p.setPname(rs.getString(2));
-//			p.setPrice(rs.getFloat(3));
-//			listOfProducts.add(p);
-//		}
-//		return listOfProducts;
-//			} catch (Exception e) {
-//				System.err.println(e);
-//			}
-//		return null;
-//	}
+	@Autowired
+	DataSource ds;				// byType 
 	
+	public int storeProduct(Product product) {
+		try {
+	Connection con = ds.getConnection();
+	PreparedStatement pstmt = con.prepareStatement("insert into product values(?,?,?)");
+	pstmt.setInt(1, product.getPid());
+	pstmt.setString(2, product.getPname());
+	pstmt.setFloat(3, product.getPrice());
+	return pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	public int updateProduct(Product product) {
+		try {
+			Connection con = ds.getConnection();
+	PreparedStatement pstmt = con.prepareStatement("update product set price = ? where pid=?");
+	pstmt.setFloat(1, product.getPrice());
+	pstmt.setInt(2, product.getPid());
+	return pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	public int deleteProduct(int pid) {
+		try {
+			Connection con = ds.getConnection();
+	PreparedStatement pstmt = con.prepareStatement("delete from product where pid = ?");
+	pstmt.setInt(1, pid);
+	return pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.err.println(e);
+			return 0;
+		}
+	}
+	
+	public List<Product> retrieveAllProducts() {
+		List<Product> listOfProducts = new ArrayList<Product>();
+		try {
+			Connection con = ds.getConnection();
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from product");
+		while(rs.next()) {
+			//System.out.println("display data from dao layer");
+			//System.out.println("pid is "+rs.getInt(1)+" pname "+rs.getString(2)+" price "+rs.getFloat(3));
+			Product p = new Product();
+			p.setPid(rs.getInt(1));
+			p.setPname(rs.getString(2));
+			p.setPrice(rs.getFloat(3));
+			listOfProducts.add(p);
+		}
+		return listOfProducts;
+			} catch (Exception e) {
+				System.err.println(e);
+			}
+		return null;
+	}
+	
+	
+//	
+//	public ModelAndView signUp(HttpServletRequest, Login login) {		// dI for request and login 
+//		
+//	}
 	
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	public int storeProduct(Product product) {
-	try {
-	return jdbcTemplate.update("insert into product values(?,?,?)", product.getPid(),product.getPname(),product.getPrice());
-	} catch (Exception e) {
-		System.err.println(e);
+	
+	
+	public int retrieveAllProductsAsListOfMapUsingPid(int pid) {
+		try {
+			return jdbcTemplate.queryForList("select * from product where pid = ?", pid).size();
+		} catch (Exception e) {
+			System.err.println(e);
+		}
 		return 0;
 	}
-	}
 	
-	public int deleteProduct(int pid) {
-		try {
-			return jdbcTemplate.update("delete from product where pid=?", pid);			
-		} catch (Exception e) {
-			System.err.println(e);
-			return 0;
-		}
-	}
-	
-	public int updateProduct(Product product) {
-		try {
-			return jdbcTemplate.update("update product set price=? where pid=?", product.getPrice(),product.getPid());
-		} catch (Exception e) {
-			System.err.println(e);
-			return 0;
-		}
-	}
-	
-	public List<Map<String, Object>> retrieveAllProductsAsListOfMap() {
-		try {
-			return jdbcTemplate.queryForList("select * from product");
-		} catch (Exception e) {
-			System.err.println(e);
-		}
-		return null;
-	}
-	
-	public List<Product> retrieveAllProductAsList() {
-		try {
-		//return jdbcTemplate.query("select * from product",new MyResultSetExtracter());
-			return jdbcTemplate.query("select * from product", new MyRowMapper());
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		return null;
-	}
-}
-
-class MyResultSetExtracter implements ResultSetExtractor<Product>{
-	@Override
-	public Product extractData(ResultSet rs) throws SQLException, DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-}
-// global while loop 
-class MyRowMapper implements RowMapper<Product>{
-	@Override
-	public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
-		Product p = new Product();
-		p.setPid(rs.getInt(1));
-		p.setPname(rs.getString(2));
-		p.setPrice(rs.getFloat(3));
-		return p;
-	}
+//	
+//	public int storeProduct(Product product) {
+//	try {
+//	return jdbcTemplate.update("insert into product values(?,?,?)", product.getPid(),product.getPname(),product.getPrice());
+//	} catch (Exception e) {
+//		System.err.println(e);
+//		return 0;
+//	}
+//	}
+//	
+//	public int deleteProduct(int pid) {
+//		try {
+//			return jdbcTemplate.update("delete from product where pid=?", pid);			
+//		} catch (Exception e) {
+//			System.err.println(e);
+//			return 0;
+//		}
+//	}
+//	
+//	public int updateProduct(Product product) {
+//		try {
+//			return jdbcTemplate.update("update product set price=? where pid=?", product.getPrice(),product.getPid());
+//		} catch (Exception e) {
+//			System.err.println(e);
+//			return 0;
+//		}
+//	}
+//	
+//	public List<Map<String, Object>> retrieveAllProductsAsListOfMap() {
+//		try {
+//			return jdbcTemplate.queryForList("select * from product");
+//		} catch (Exception e) {
+//			System.err.println(e);
+//		}
+//		return null;
+//	}
+//	
+//	public List<Product> retrieveAllProductAsList() {
+//		try {
+//		//return jdbcTemplate.query("select * from product",new MyResultSetExtracter());
+//			return jdbcTemplate.query("select * from product", new MyRowMapper());
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//		return null;
+//	}
+//}
+//
+//class MyResultSetExtracter implements ResultSetExtractor<Product>{
+//	@Override
+//	public Product extractData(ResultSet rs) throws SQLException, DataAccessException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//}
+//// global while loop 
+//class MyRowMapper implements RowMapper<Product>{
+//	@Override
+//	public Product mapRow(ResultSet rs, int rowNum) throws SQLException {
+//		Product p = new Product();
+//		p.setPid(rs.getInt(1));
+//		p.setPname(rs.getString(2));
+//		p.setPrice(rs.getFloat(3));
+//		return p;
+//	}
 }

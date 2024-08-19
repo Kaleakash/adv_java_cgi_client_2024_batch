@@ -32,11 +32,11 @@ public class DemoTest {
 //		
 //		Employee emp3 = (Employee)obj.getBean("emp3");
 //		System.out.println(emp3);
-//		
+////		
 //		Employee emp4 = (Employee)obj.getBean("emp4");
 //		System.out.println(emp4);
 		
-//		Address add1 = (Address)obj.getBean("address");
+//		Address add1 = (Address)obj.getBean("add");
 //		System.out.println(add1);
 		
 		Employee emp1 = (Employee)obj.getBean("employee");

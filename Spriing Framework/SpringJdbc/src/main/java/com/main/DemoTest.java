@@ -63,12 +63,12 @@ public class DemoTest {
 		    		System.out.println(result);
 		    		
 		    		break;
-			case 5 :System.out.println("Product record as list of map");
-			        List<Map<String, Object>> listOfInfo = ps.retrieveAllProductsAsListOfMap();
-			        for(Map<String, Object> mm : listOfInfo) {
-			        	System.out.println(mm);
-			        }
-			        break;
+//			case 5 :System.out.println("Product record as list of map");
+//			        List<Map<String, Object>> listOfInfo = ps.retrieveAllProductsAsListOfMap();
+//			        for(Map<String, Object> mm : listOfInfo) {
+//			        	System.out.println(mm);
+//			        }
+//			        break;
 			default:System.out.println("wrong choice");
 				break;
 			}
