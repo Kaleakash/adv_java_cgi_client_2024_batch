@@ -5,6 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<span th:text="#{result}" style="color:red"></span>
 <h2>Login Page</h2>
 <form th:action="@{/signin}" th:object="${login}" method="post">
 	<label>EmailId</label>
@@ -14,5 +15,6 @@
 	<input type="submit" value="SignIn"/>
 	<input type="reset" value="reset"/>
 </form>
+<a href="/signuppage">SignUp</a>
 </body>
 </html>
