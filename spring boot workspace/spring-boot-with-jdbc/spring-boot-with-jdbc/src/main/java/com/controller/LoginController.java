@@ -19,4 +19,13 @@ public class LoginController {
 		System.out.println(ll);   // toString method called to get default value of emailid and password. 
 		return "login";
 	}
+	@RequestMapping(value = "/signin",method = RequestMethod.POST)
+	public String signIn(Login ll, Model mm) {
+		System.out.println(ll); 
+		if(ll.getEmailid().equals("akash@gmail.com") && ll.getPassword().equals("123")) {
+			return "success";
+		}else {
+			return "failure";
+		}
+	}
 }
