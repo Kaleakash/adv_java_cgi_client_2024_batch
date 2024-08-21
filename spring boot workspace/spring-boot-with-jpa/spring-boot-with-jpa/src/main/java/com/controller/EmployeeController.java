@@ -1,5 +1,7 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,9 @@ public class EmployeeController {
 	// http://localhost:9090/
 	@RequestMapping(value = "/",method = RequestMethod.GET)
 	public String openIndexPage(Model model,Employee employee) {   // DI
+		
+		List<Employee> listOfEmployee = employeeService.findAllEmployees();
+		model.addAttribute("listofemployee", listOfEmployee);
 		model.addAttribute("emp", employee);
 		return "index";
 	}
@@ -26,6 +31,8 @@ public class EmployeeController {
 	public String storeEmployee(Model model,Employee employee) {   // DI
 		String result = employeeService.storeEmployee(employee);
 		System.out.println(result);
+		List<Employee> listOfEmployee = employeeService.findAllEmployees();
+		model.addAttribute("listofemployee", listOfEmployee);
 		model.addAttribute("msg", result);
 			employee.setEid(0);
 			employee.setEname("");
