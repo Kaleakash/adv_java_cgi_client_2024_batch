@@ -495,7 +495,7 @@ spring.h2.console.enabled=true
 
 
 
-database details in application.properties file 
+database details in application.properties file MySQL database 
 
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/mydb
