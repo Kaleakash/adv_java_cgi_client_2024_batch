@@ -9,9 +9,9 @@
 <h2>Add Employee</h2>
 <form th:object="${emp}"  th:action="@{/storeemployee}" method="post">
 	<label>EId</label>
-	<input type="number" th:field="*{eid}"><br/>
+	<input type="number" th:field="*{eid}" th:readonly="${readonly}"><br/>
 	<label>EName</label>
-	<input type="text" th:field="*{ename}"><br/>
+	<input type="text" th:field="*{ename}" th:readonly="${readonly}"><br/>
 	<label>Salary</label>
 	<input type="number" th:field="*{salary}"><br/>
 	<input type="submit" th:value="${buttonValue}" name="submitButton"/>

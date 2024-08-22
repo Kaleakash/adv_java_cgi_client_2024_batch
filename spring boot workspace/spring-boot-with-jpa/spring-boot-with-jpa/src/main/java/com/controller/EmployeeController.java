@@ -27,6 +27,7 @@ public class EmployeeController {
 		model.addAttribute("listofemployee", listOfEmployee);
 		model.addAttribute("emp", employee);
 		model.addAttribute("buttonValue", "Store Employee");
+		model.addAttribute("readonly", false);
 		return "index";
 	}
 	
@@ -75,6 +76,7 @@ public class EmployeeController {
 		model.addAttribute("listofemployee", listOfEmployee);
 		model.addAttribute("emp", employee);
 		model.addAttribute("buttonValue", "Update Employee");
+		model.addAttribute("readonly", true);
 		return "index";
 	}
 }
