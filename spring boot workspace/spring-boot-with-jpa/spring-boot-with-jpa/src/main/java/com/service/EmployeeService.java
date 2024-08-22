@@ -25,4 +25,36 @@ public class EmployeeService {
 	public List<Employee> findAllEmployees() {
 		return employeeDao.findAllEmployees();
 	}
+	
+	public String deleteEmployeeById(int eid) {
+		if(employeeDao.deleteEmployeeRecord(eid)>0) {
+			return "Employee record deleted successfully";
+		}else {
+			return "Employee record not present";
+		}
+	}
+	public String updateEmployeeById(Employee emp) {
+		if(employeeDao.updateEmployeeRecord(emp)>0) {
+			return "Employee record update successfully";
+		}else {
+			return "Employee record not present";
+		}
+	}
+	public String findEmployee(int eid) {
+		Employee emp = employeeDao.findById(eid);
+		if(emp==null) {
+			return "Record not present";
+		}else {
+			return emp.toString();
+		}
+	}
+	
+	public Employee findEmployeeById(int eid) {
+		Employee emp = employeeDao.findById(eid);
+		if(emp==null) {
+			return null;
+		}else {
+			return emp;
+		}
+	}
 }
