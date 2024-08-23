@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bean.Product;
@@ -32,4 +34,22 @@ public class ProductController {
 		listOfProduct.add(p3);
 		return listOfProduct;
 	}
+	//http://localhost:8080/singlequeryparam?pid=100;
+	
+	@RequestMapping(value = "singlequeryparam",method = RequestMethod.GET,produces = MediaType.TEXT_PLAIN_VALUE)
+	public String singleQueryParam(@RequestParam("pid") int pid) {
+		// coding or pass this value to service layer 
+		
+		return "You pass the id as query param technique "+pid;
+	}
+	
+	//http://localhost:8080/singlepathparam/100;
+	
+		@RequestMapping(value = "singlepathparam/{pid}",method = RequestMethod.GET,produces = MediaType.TEXT_PLAIN_VALUE)
+		public String singlePathParam(@PathVariable("pid") int pid) {
+			// coding or pass this value to service layer 
+			return "You pass the id as path param technique "+pid;
+		}
+	
+	
 }
