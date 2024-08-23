@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,6 +51,15 @@ public class ProductController {
 			// coding or pass this value to service layer 
 			return "You pass the id as path param technique "+pid;
 		}
-	
-	
+		// http://localhost:8080/storeProduct, method = post and data in the form of json etc. 
+		
+		@RequestMapping(value = "storeProduct",method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
+		public String storeProduct(@RequestBody Product product) {// @RequestBody annotation convert json to java format from request body. 
+			// call service method to store the data. 
+			System.out.println(product);// override toString method in java bean class. 
+			return "Post method called "+product.getPname();
+		}
 }
+
+
+
