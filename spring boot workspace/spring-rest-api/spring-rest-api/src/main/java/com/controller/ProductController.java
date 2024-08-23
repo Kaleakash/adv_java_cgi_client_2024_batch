@@ -16,14 +16,14 @@ import com.bean.Product;
 @RestController
 public class ProductController {
 
-	//http://locahost:8080/product
+	//http://localhost:8080/product
 	
 	@RequestMapping(value = "product",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	public Product getProductInfo() {
 		Product p1 = new Product(100, "TV", 34000);
 		return p1;
 	}
-	//http://locahost:8080/products
+	//http://localhost:8080/products
 	@RequestMapping(value = "products",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Product> getProducts() {
 		Product p1 = new Product(100, "TV", 34000);
@@ -58,6 +58,19 @@ public class ProductController {
 			// call service method to store the data. 
 			System.out.println(product);// override toString method in java bean class. 
 			return "Post method called "+product.getPname();
+		}
+		// http://localhost:8080/updateProduct, method = put and data in the form of json etc. 
+		@RequestMapping(value = "updateProduct",method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE)
+		public String updateProduct(@RequestBody Product product) {// @RequestBody annotation convert json to java format from request body. 
+			// call service method to update the data. 
+			System.out.println(product);// override toString method in java bean class. 
+			return "Put method called "+product.getPname();
+		}
+		// http://localhost:8080/deleteProduct/100, method = delete
+		@RequestMapping(value = "deleteProduct/{pid}",method = RequestMethod.DELETE)
+		public String updateProduct(@PathVariable("pid") int pid) {// @RequestBody annotation convert json to java format from request body. 
+			// call service method to delete the data. 
+			return "Delete method with id as "+pid;
 		}
 }
 
