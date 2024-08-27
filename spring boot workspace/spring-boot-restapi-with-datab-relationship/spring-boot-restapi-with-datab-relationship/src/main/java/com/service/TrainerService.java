@@ -26,6 +26,7 @@ public class TrainerService {
 		if(result.isPresent()) {
 			return "TId must be unique";
 		}else {
+			
 			trainerRepository.save(trainer);
 			return "Trainer Record stored successfuly";
 		}
