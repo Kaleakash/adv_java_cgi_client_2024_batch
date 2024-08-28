@@ -47,4 +47,11 @@ public class StudentController {
 	public String deleteStudent(@PathVariable("sid") int sid) {
 		return studentService.deleteStudent(sid);
 	}
+	
+	
+	@RequestMapping(value = "deletestudentbyage/{age}",
+			method = RequestMethod.DELETE)
+	public String deleteStudentByAge(@PathVariable("age") int age) {
+		return studentService.deleteStudentByAge(age);
+	}
 }

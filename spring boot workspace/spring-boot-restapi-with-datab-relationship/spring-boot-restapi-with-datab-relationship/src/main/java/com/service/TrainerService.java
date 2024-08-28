@@ -17,6 +17,18 @@ public class TrainerService {
 	TrainerRepository trainerRepository;
 	
 	
+	public List<String> findAllTrainers() {
+		return trainerRepository.findTrainerName();
+	}
+	
+	
+	public List<Object[]> findTraienrNameAndTech() {
+		return trainerRepository.findTrainerNameAndTech();
+	}
+	public List<Trainer> findAllTech(String tech) {
+		return trainerRepository.findTrainerByTech(tech);
+	}
+	
 	public List<Trainer> findAll() {
 		return trainerRepository.findAll();
 	}

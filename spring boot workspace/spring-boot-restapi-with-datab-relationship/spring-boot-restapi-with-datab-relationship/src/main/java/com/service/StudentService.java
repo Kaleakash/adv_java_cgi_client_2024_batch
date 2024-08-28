@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.entity.Student;
 import com.repository.StudentRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class StudentService {
 
@@ -17,6 +19,17 @@ public class StudentService {
 	
 	public List<Student> findAll() {
 		return studentRepository.findAll();
+	}
+	
+	
+	@Transactional
+	public String deleteStudentByAge(int age) {
+		if(studentRepository.deleteStudentById(age)>0) {
+			return "Student record deleted";
+		}else {
+			return "Student record not present";
+		}
+
 	}
 	
 	public String storeStudent(Student student) {

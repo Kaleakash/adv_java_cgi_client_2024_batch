@@ -20,6 +20,29 @@ public class TrainerController {
 
 	@Autowired
 	TrainerService trainerService;
+	
+	
+	@RequestMapping(value = "trainersfindbytech/{tech}",
+			produces = MediaType.APPLICATION_JSON_VALUE,
+			method = RequestMethod.GET)
+	public List<Trainer> findAllByTech(@PathVariable("tech") String tech) {
+		return trainerService.findAllTech(tech);
+	}
+	
+	
+	@RequestMapping(value = "trainersnames",
+			method = RequestMethod.GET)
+	public List<String> findAllTrainerNames() {
+		return trainerService.findAllTrainers();
+	}
+	
+	
+	@RequestMapping(value = "trainersnamesandtech",
+			method = RequestMethod.GET)
+	public List<Object[]> findAllTrainerNameAndTech() {
+		return trainerService.findTraienrNameAndTech();
+	}
+	
 	// http://localhost:8080/trainers 
 	@RequestMapping(value = "trainers",
 			produces = MediaType.APPLICATION_JSON_VALUE,
