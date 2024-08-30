@@ -17,6 +17,7 @@ public class AccountService {
 	}
 	
 	public String findBalance(int accno) {
+		System.out.println("find balance gpay client called ");
 		Optional<Account> result = accountRepository.findById(accno);
 		if(result.isPresent()) {
 			Account acc = result.get();
@@ -27,6 +28,7 @@ public class AccountService {
 	}
 	
 	public int findAccountNumber(String emailid) {
+		System.out.println("find account number gpay client called ");
 		try {
 		return accountRepository.findAccountNumber(emailid);
 		}catch(Exception e) {
