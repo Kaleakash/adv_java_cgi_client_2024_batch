@@ -504,6 +504,16 @@ spring.datasource.password=root@123
 spring.jpa.hibernate.ddl-auto=update 
 
 
+database details for mongo db in application.properties file 
+
+spring.data.mongodb.database=testdb
+spring.data.mongodb.uri=mongodb://localhost:27017/testdb
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+# spring.data.mongodb.username=myUser
+# spring.data.mongodb.password=myPassword
+
+
 
 database details in application.properties file 
 
