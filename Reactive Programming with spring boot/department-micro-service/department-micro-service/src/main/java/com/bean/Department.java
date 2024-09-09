@@ -3,7 +3,7 @@ package com.bean;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("departement")
+@Table("department")
 public class Department {
 @Id
 private int did;

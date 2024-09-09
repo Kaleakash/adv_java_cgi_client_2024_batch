@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.bean.Department;
 import com.repository.DepartmentRepository;
 
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -16,17 +17,21 @@ public class DepartmentService {
 	@Autowired
 	DepartmentRepository departmentRepository;
 	
-//	public Optional<Department> findDeparmentById(int did) {
-//		
-//		
-//		return null;
-//	}
+
 	
-	public  void storeDepartment(Department department) {
-	Mono<Department> result	= departmentRepository.findById(department.getDid());
-	result.subscribe(ele-> {
-		System.out.println(ele);
-	});
+	public  Mono<Department> storeDepartment(Department department) {
+
+	return departmentRepository.findById(department.getDid()).switchIfEmpty(departmentRepository.save(department));
+	}
 	
+	public Mono<Department> findDepartmentById(int did){
+		return departmentRepository.findById(did);
+	}
+	
+	public Flux<Department> findAllDepartment() {
+		return departmentRepository.findAll();
 	}
 }
+
+
+
