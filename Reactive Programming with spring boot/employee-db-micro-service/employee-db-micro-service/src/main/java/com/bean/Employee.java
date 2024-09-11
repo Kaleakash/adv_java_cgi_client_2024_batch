@@ -14,7 +14,15 @@ private String salary;
 private String departmentname;
 @Transient
 private boolean isNew;					// this property ignore in db. 
+@Transient
+private int did;
 
+public int getDid() {
+	return did;
+}
+public void setDid(int did) {
+	this.did = did;
+}
 public void setNew(boolean isNew) {
 	this.isNew = isNew;
 }

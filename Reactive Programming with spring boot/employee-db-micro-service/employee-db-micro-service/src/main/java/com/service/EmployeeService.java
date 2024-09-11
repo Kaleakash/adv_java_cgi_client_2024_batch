@@ -20,7 +20,7 @@ public class EmployeeService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 	
-	public  Mono<Department>  findDepartmentInfo(int did) {
+	public  Mono<Department>  findDepartmentInfo(int did) {			// This method give mono of department 
 		return webClient.build().get().uri("http://DEPARTMENT-MICRO-SERVICE/department/findbyid/"+did).retrieve().
 				bodyToMono(Department.class);
 	}
@@ -33,6 +33,26 @@ public class EmployeeService {
 						return Mono.just("Employee record already present");
 				}).
 				switchIfEmpty(employeeRepository.save(emp).thenReturn("Employee record saved"));
+	}
+	
+	public Mono<String> storeEmployeeByPassingDeptId(Employee emp){	// eid, ename,salary,did not department 
+	
+		return findDepartmentInfo(emp.getDid()).flatMap(department-> {
+			
+			//return Mono.just("your department name is "+department.getDname());
+			
+			emp.setNew(true);
+			emp.setDepartmentname(department.getDname());
+			return employeeRepository.findById(emp.getEid()).
+					flatMap(empObject-> {
+							return Mono.just("Employee record already present");
+					}).
+					switchIfEmpty(employeeRepository.save(emp).thenReturn("Employee record saved"));
+			
+		}).switchIfEmpty(Mono.just("No department present, So Employee record didn't store "));
+		
+		
+		
 	}
 	
 	public Mono<String> deleteEmployee(int id){

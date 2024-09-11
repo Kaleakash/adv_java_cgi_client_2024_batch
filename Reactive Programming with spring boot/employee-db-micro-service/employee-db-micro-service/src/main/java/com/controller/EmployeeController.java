@@ -32,7 +32,8 @@ public class EmployeeController {
 	
 	@PostMapping(value = "store",consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Mono<String> storeEmployee(@RequestBody Employee employee){
-		return employeeService.storeEmployee(employee);
+		//return employeeService.storeEmployee(employee);
+		return employeeService.storeEmployeeByPassingDeptId(employee);
 	}
 	
 	@DeleteMapping(value = "delete/{eid}")
