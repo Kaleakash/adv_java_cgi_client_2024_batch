@@ -31,7 +31,7 @@ public class MySecurityConfig {
 			formLogin(form->form.permitAll()).						// open login page to send user name and password pre defined forms open to pass information 
 		build();
 		
-		//return null;
+
 	}
 	
 	@Bean
@@ -41,7 +41,7 @@ public class MySecurityConfig {
 		String user1EncodedPassword = encodedPassword().encode("akash123");
 		String adminEncodedPassword = encodedPassword().encode("admin123");
 		
-		listOfUser.add(User.withUsername("akash").password(user1EncodedPassword).roles("USER").build());
+		listOfUser.add(User.withUsername("akash").password(user1EncodedPassword). roles("USER").build());
 		listOfUser.add(User.withUsername("admin").password(adminEncodedPassword).roles("ADMIN","USER").build());
 		return new InMemoryUserDetailsManager(listOfUser);
 	}
