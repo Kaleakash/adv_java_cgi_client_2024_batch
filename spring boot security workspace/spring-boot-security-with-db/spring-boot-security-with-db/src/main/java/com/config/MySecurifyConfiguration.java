@@ -22,11 +22,11 @@ public class MySecurifyConfiguration {
 		
 		return http.csrf(csrf->csrf.disable()).
 			authorizeHttpRequests(httpSecurity-> {
-			httpSecurity.requestMatchers("/public/**","/signup/**").permitAll();
+			httpSecurity.requestMatchers("/public/**","/signup/**","/login").permitAll();
 			httpSecurity.requestMatchers("/user/**").hasAnyRole("USER");
 			httpSecurity.requestMatchers("/admin/**").hasAnyRole("ADMIN");
 			httpSecurity.anyRequest().authenticated();
-		}).	
+		}).formLogin(ll->ll.loginPage("/login")).
 		build();
 	}
 	

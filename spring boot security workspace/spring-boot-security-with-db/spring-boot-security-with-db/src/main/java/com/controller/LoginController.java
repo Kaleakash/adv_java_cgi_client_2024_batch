@@ -3,6 +3,8 @@ package com.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.entity.Login;
 import com.service.LoginService;
 
-@RestController
+@Controller
 public class LoginController {
 
 	@Autowired
@@ -20,8 +22,21 @@ public class LoginController {
 	@Autowired
 	PasswordEncoder passwordEncode;
 	
-	@PostMapping(value = "signup",consumes = MediaType.APPLICATION_JSON_VALUE)
-	public String signUp(@RequestBody Login login) {
+	@GetMapping(value = "login")
+	public String loginPage() {
+		System.out.println("i cam here to open login page");
+		return "login";
+	}
+	
+	
+	@GetMapping(value = "signup")
+	public String singupPage(Model mm, Login login) {
+		mm.addAttribute("ll", login);
+		System.out.println("i cam here to open signup page");
+		return "signup";
+	}
+	@PostMapping(value = "signup")
+	public String signUp(Model mm, Login login) {
 		login.setPassword(passwordEncode.encode(login.getPassword()));		// encode format convert 
 		return loginService.signUp(login);
 	}
