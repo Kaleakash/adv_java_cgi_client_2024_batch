@@ -28,13 +28,13 @@ public class MySecurityConfig {
 			http.requestMatchers("/admin/**").hasAnyRole("ADMIN");
 			http.requestMatchers("/user/**").hasAnyRole("USER");
 		}).	
-			formLogin(form->form.permitAll()).						// open login page to send user name and password pre defined forms open to pass information 
-		build();
-		
+			formLogin(form->form.permitAll()).// open login page to send user name and password pre defined forms open to pass information 
+		build();						// open default pre defined login page 
+									// with action as login, with method as post and which pass csrf token
 
 	}
 	
-	@Bean
+	@Bean				// it can in memory or can in db. 
 	public UserDetailsService userDetailsService() {
 		List<UserDetails> listOfUser = new ArrayList<UserDetails>();
 		

@@ -22,19 +22,18 @@ public class MySecurifyConfiguration {
 		
 		return http.csrf(csrf->csrf.disable()).
 			authorizeHttpRequests(httpSecurity-> {
-			httpSecurity.requestMatchers("/public/**","/signup/**","/login").permitAll();
+			httpSecurity.requestMatchers("/public/**","/signup/**","/login/**").permitAll();
 			httpSecurity.requestMatchers("/user/**").hasAnyRole("USER");
 			httpSecurity.requestMatchers("/admin/**").hasAnyRole("ADMIN");
 			httpSecurity.anyRequest().authenticated();
-		}).formLogin(ll->ll.loginPage("/login")).
-		build();
+		}).formLogin(ll->ll.loginPage("/login").successHandler(new AuthenticationManager())).				// user defined form 
+		build();									// method must be post action must be login no crsf token so disable. 
 	}
-	
 	
 	@Autowired
 	LoginService loginService;
 	
-	@Bean
+	@Bean			// retrieve user details from db 
 	public AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider dao = new DaoAuthenticationProvider();
 		dao.setUserDetailsService(loginService);		

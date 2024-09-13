@@ -23,9 +23,15 @@ public class LoginController {
 	PasswordEncoder passwordEncode;
 	
 	@GetMapping(value = "login")
-	public String loginPage() {
+	public String loginPage(Model model, Login login) {
+		model.addAttribute("ll", login);
 		System.out.println("i cam here to open login page");
 		return "login";
+	}
+	
+	@GetMapping(value = "home")
+	public String home() {
+		return "home";
 	}
 	
 	
@@ -38,6 +44,7 @@ public class LoginController {
 	@PostMapping(value = "signup")
 	public String signUp(Model mm, Login login) {
 		login.setPassword(passwordEncode.encode(login.getPassword()));		// encode format convert 
-		return loginService.signUp(login);
+		System.out.println(loginService.signUp(login));
+		return "signup";
 	}
 }
