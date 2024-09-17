@@ -7,17 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-
 import javax.crypto.SecretKey;
-
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
 import io.jsonwebtoken.Claims;
-
-import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -41,6 +36,7 @@ public class JwtUtil {
 				.setExpiration(new Date(System.currentTimeMillis()+TimeUnit.MINUTES.toMillis(jwtExpirationInMinute)))
 				.signWith(secretKey).compact();
 	}
+	
 	public boolean validateToken(String authToken) {
 		try {
 			Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(authToken);

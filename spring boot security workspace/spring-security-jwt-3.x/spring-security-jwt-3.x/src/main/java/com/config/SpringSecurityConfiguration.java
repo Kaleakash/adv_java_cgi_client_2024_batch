@@ -20,15 +20,11 @@ import com.service.*;
 @EnableWebSecurity
 public class SpringSecurityConfiguration {
 	
-
-
-	
+	@Autowired
+	CustomJwtAuthenticationFilter customJwtAuthenticationFilter;			// filter check token and roles 
 	
 	@Autowired
-	CustomJwtAuthenticationFilter customJwtAuthenticationFilter;
-	
-	@Autowired
-	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+	private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;			// exception if token not present 
 		
 	@Bean
 	public PasswordEncoder passwordEncoder(){
@@ -52,9 +48,9 @@ public class SpringSecurityConfiguration {
 		            auth.anyRequest().authenticated();
 	            })
 	        	.exceptionHandling(exception -> exception
-	                    .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+	                    .authenticationEntryPoint(jwtAuthenticationEntryPoint)		// check token details. 
 	                    ).sessionManagement(session -> session
-	                            .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // No session creation
+	                            .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // No session creation stateless 
 	                         ).addFilterBefore(customJwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 	        return http.build();
 	    }

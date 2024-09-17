@@ -30,10 +30,10 @@ public class LoginService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String emailid) throws UsernameNotFoundException {
 		List<SimpleGrantedAuthority> roles = null;	
 		Optional<Login> result = loginDao.findById(emailid);
-		
 		if (result.isPresent()) {
 			Login login = result.get();
-			roles = Arrays.asList(new SimpleGrantedAuthority(login.getRole()));
+			//bcryptEncoder.matches(emailid, emailid)
+			roles = Arrays.asList(new SimpleGrantedAuthority(login.getRole()));		// here we set the user roles. 
 			return new User(login.getEmailid(), login.getPassword(), roles);
 		}
 		throw new UsernameNotFoundException("User not found with the name " + emailid);	}
