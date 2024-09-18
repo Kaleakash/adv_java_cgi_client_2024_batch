@@ -21,8 +21,8 @@ public class LocalExceptionHandling {
 		return "Array value base upon index position "+info[index];
 	}
 	
-	@ExceptionHandler(Exception.class)
-	public ResponseEntity<String> handleException(Exception exp){
-		return ResponseEntity.status(500).body("Exception generated "+exp);
-	}
+//	@ExceptionHandler(Exception.class)
+//	public ResponseEntity<String> handleException(Exception exp){
+//		return ResponseEntity.status(500).body("Exception generated "+exp);
+//	}
 }
