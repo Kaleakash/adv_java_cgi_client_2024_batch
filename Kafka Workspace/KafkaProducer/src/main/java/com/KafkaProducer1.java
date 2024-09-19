@@ -1,7 +1,6 @@
 package com;
 
 import java.util.Properties;
-
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -23,7 +22,7 @@ public class KafkaProducer1 {
 	
 	Producer<String, String> producerRef = new KafkaProducer<String, String>(pp);	// kakfa producer ref ready to send the data 
 
-	ProducerRecord<String, String> data = new ProducerRecord<String, String>(topicName, "This message send through Java program to topic1");
+	ProducerRecord<String, String> data = new ProducerRecord<String, String>(topicName, "This message send through Java program to topic1 even java consumer can consume");
 	
 	producerRef.send(data);
 	
