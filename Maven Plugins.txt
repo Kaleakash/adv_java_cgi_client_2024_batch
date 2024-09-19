@@ -6,6 +6,14 @@ Java version
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
+H2 in memory database 
+
+<dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <version>2.2.222</version>
+    <scope>runtime</scope>
+</dependency>
 
 My SQL Connector for 8.x version 
 
@@ -485,8 +493,6 @@ jwt token
 	</dependency>
 
 
-
-
 jwt token with 3.x version 
 
 			<dependency>
@@ -507,6 +513,8 @@ jwt token with 3.x version
         <scope>runtime</scope>
     </dependency>
 
+
+
 database details in application.properties file with h2 database 
 spring.datasource.driver-class-name=org.h2.Driver
 spring.datasource.url=jdbc:h2:mem:testdb
@@ -517,7 +525,7 @@ spring.h2.console.enabled=true
 
 
 
-database details in application.properties file MySQL database 
+database details in application.properties file 
 
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/mydb
@@ -534,13 +542,6 @@ spring.data.mongodb.host=localhost
 spring.data.mongodb.port=27017
 # spring.data.mongodb.username=myUser
 # spring.data.mongodb.password=myPassword
-
-database details for redis db in application.properties file 
-
-spring.cache.type=redis
-spring.redis.host=localhost
-spring.redis.port=6379
-#spring.redis.password=yourpassword (if required)
 
 
 database details in application.properties file 
@@ -569,6 +570,13 @@ spring.r2dbc.url=r2dbc:mysql://localhost:3306/mydb1?serverZoneId=IST
 spring.r2dbc.username=root
 spring.r2dbc.password=root@123
 
+spring security custom username and password 
+
+application.properties 
+
+spring.security.user.name=Akash
+spring.security.user.password=123
+
 
 with security configuration 
 
@@ -577,6 +585,14 @@ spring.datasource.url=jdbc:mysql://localhost:3306/securitydb?createDatabaseIfNot
 spring.datasource.username=root
 spring.datasource.password=root@123
 spring.jpa.hibernate.ddl-auto=update
+
+spring boot with redis 
+
+spring.cache.type=redis
+spring.redis.host=localhost
+spring.redis.port=6379
+spring.redis.password=yourpassword (if required)
+
 
 #spring boot actuator 
 # Enable all actuator endpoints
@@ -728,4 +744,37 @@ core reactive
       <artifactId>reactor-core</artifactId>
       <version>3.5.1</version>
     </dependency>
+
+
+core java kafka dependencies 
+
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.36</version>
+</dependency>
+
+<dependency>
+    <groupId>org.apache.kafka</groupId>
+    <artifactId>kafka_2.13</artifactId>
+    <version>3.2.3</version>
+</dependency>
+
+
+
+Kafka with spring boot 
+
+# Kafka broker address
+spring.kafka.bootstrap-servers=localhost:9092
+
+# Consumer configuration
+spring.kafka.consumer.group-id=my-group
+spring.kafka.consumer.auto-offset-reset=earliest
+spring.kafka.consumer.enable-auto-commit=true
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+
+# Producer configuration
+spring.kafka.producer.key-serializer=org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer=org.apache.kafka.common.serialization.StringSerializer
 
