@@ -1,9 +1,11 @@
 package com.userobject;
 
+import java.beans.Transient;
 import java.io.Serializable;
 
 public class Employee implements Serializable{
 private String fname;
+transient
 private int age;
 public String getFname() {
 	return fname;
