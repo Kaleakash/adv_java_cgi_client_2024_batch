@@ -760,6 +760,11 @@ core java kafka dependencies
     <version>3.2.3</version>
 </dependency>
 
+ <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.14.0</version>
+    </dependency>
 
 
 Kafka with spring boot 
