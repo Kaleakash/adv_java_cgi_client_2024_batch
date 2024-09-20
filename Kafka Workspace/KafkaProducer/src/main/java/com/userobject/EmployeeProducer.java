@@ -18,12 +18,12 @@ public class EmployeeProducer {
 		pp.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());		// key type of string 
 		pp.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, EmployeeSerializer.class.getName());		// value type is Employee 		
 		
-		Employee emp1 = new Employee("Raj", 26);
+		Employee emp1 = new Employee("Mahesh", 32);
 		
 		Producer<String, Employee> producerRef = new KafkaProducer<String,Employee>(pp);	// kakfa producer ref ready to send the data 
 
-		ProducerRecord<String, Employee> data = new ProducerRecord<String, Employee>(topicName, emp1);
-		
+		//ProducerRecord<String, Employee> data = new ProducerRecord<String, Employee>(topicName, emp1);
+		ProducerRecord<String, Employee> data = new ProducerRecord<String, Employee>(topicName, "emp_key",emp1);
 		producerRef.send(data);
 		
 		producerRef.close();
