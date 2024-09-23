@@ -16,6 +16,7 @@ public class ProducerController {
 	@GetMapping(value = "kafka_send/{msg}")
 	public String sendMessage(@PathVariable("msg") String msg) {
 		kafkaTemplate.send("spring_topic", msg);
+		//kafkaTemplate
 		return "Data sent";
 	}
 }
