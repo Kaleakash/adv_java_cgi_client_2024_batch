@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+ first-service1:
+   image: spring-boot-docker-app-first-service:latest
+   build: ./
+   container_name: akash-container
+   ports:
+     - 8181:8080
