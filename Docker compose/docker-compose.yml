@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  first-service:
+    image: akashkale/my-spring:1.111
+    container_name: akash-container
+    ports:
+      - 8181:8080
+  second-service:
+    image: msquare9/my-spring:1.11
+    container_name: second-container;
+    ports:
+      - 8282:8080
+  third-service:
+    image: manojdocker1111/my-spring:1
+    ports:
+      - 8383:8080
+  fourth-service:
+    image: sanchit1998/my-spring-proj:1.111
+    ports:
+    - 8484:8080
+  fifth-service:
+    image: ishanchoudhary/spring-boot-with-docker:1.1
+    ports:
+      - 8585:8080
+  sixth-service:
+    image: indudocker39/spring-docker:1.10
+    ports:
+      - 8686:8080
