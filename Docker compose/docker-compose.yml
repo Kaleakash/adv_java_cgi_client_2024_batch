@@ -7,7 +7,7 @@ services:
       - 8181:8080
   second-service:
     image: msquare9/my-spring:1.11
-    container_name: second-container;
+    container_name: second-container
     ports:
       - 8282:8080
   third-service:
